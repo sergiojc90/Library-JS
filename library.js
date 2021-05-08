@@ -7,5 +7,7 @@
         this.author = author;
         this.pages = pages;
         this.status = status;
-        this.info = title + " by " + author + ", " + pages + " pages, " + status;
+        this.info = function() {
+            return (title + " by " + author + ", " + pages + " pages, " + status);
+        }
     }
