@@ -2,6 +2,8 @@
 // The "Book" object is going to have the following attributes:
 // Title, author, number of pages and whether or not you have read the book.
 
+    let myLibrary = [];
+
     function Book(title, author, pages, status){
         this.title = title;
         this.author = author;
@@ -12,4 +14,8 @@
         }
     }
 
+    function addBookToLibrary(){
+
+    }
+    
     const theHobbit = new Book("The Hobbit", "J.R.R Tolkien","295","not read yet");
