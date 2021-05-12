@@ -11,27 +11,27 @@
         },
         {
             "title":"Meditations",
-            "author":"J.R.R Tolkien",
-            "pages":"295",
+            "author":"Marcus Aurelius",
+            "pages":"172",
             "status":"Already read"
         },
         {
             "title":"Plato's Dialogs",
-            "author":"J.R.R Tolkien",
-            "pages":"295",
-            "status":"Already read"
+            "author":"Plato",
+            "pages":"511",
+            "status":"Not read yet"
         },
         {
             "title":"The Republic",
-            "author":"J.R.R Tolkien",
-            "pages":"295",
-            "status":"Already read"
+            "author":"Plato",
+            "pages":"211",
+            "status":"Not read yet"
         },
         {
-            "title":"OOP JavaScript",
-            "author":"J.R.R Tolkien",
-            "pages":"295",
-            "status":"Already read"
+            "title":"The Principles of Object-Oriented JavaScript",
+            "author":"Nicholas Zakas",
+            "pages":"120",
+            "status":"Not read yet"
         }
     ];
 
@@ -58,9 +58,10 @@
         let pages = document.createElement("p");
         let status = document.createElement("p");
 
+        div.classList.add("card")
         title.textContent = item.title;
         author.textContent = item.author;
-        pages.textContent = item.pages;
+        pages.textContent = "Pages: "+item.pages;
         status.textContent = item.status;
 
         div.appendChild(title);

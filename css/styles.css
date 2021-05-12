@@ -2,24 +2,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 }
 
 html{
     font-size: 62.5%;
 }
 
+header{
+    height: 40px;
+    padding: 10px;
+    display: flex;
+}
+
 main{
-    max-width: 980px;
+    max-width: 1080px;
     margin: 0 auto;
     text-align: center;
     font-size: 1.8rem;
 }
 
-#grid{
-    margin: 0 auto;
+.grid{
+    margin: 20px 0;
+    padding: 0 1rem;
     display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap: 10px;
-    text-align: center;
     width: 100%;
+}
 
+.card{
+    padding: 2rem;
+    border: 2px solid black;
+    border-radius: 16px;
+    line-height: 2.5rem;
+}
+
+footer{
+    margin: 20px 0;
+    padding: 20px 0;
+    text-align: center;
 }
