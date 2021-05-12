@@ -10,25 +10,25 @@
             "status":"Already read"
         },
         {
-            "title":"The Hobbit",
+            "title":"Meditations",
             "author":"J.R.R Tolkien",
             "pages":"295",
             "status":"Already read"
         },
         {
-            "title":"The Hobbit",
+            "title":"Plato's Dialogs",
             "author":"J.R.R Tolkien",
             "pages":"295",
             "status":"Already read"
         },
         {
-            "title":"The Hobbit",
+            "title":"The Republic",
             "author":"J.R.R Tolkien",
             "pages":"295",
             "status":"Already read"
         },
         {
-            "title":"The Hobbit",
+            "title":"OOP JavaScript",
             "author":"J.R.R Tolkien",
             "pages":"295",
             "status":"Already read"
@@ -50,3 +50,23 @@
     }
     
     const theHobbit = new Book("The Hobbit", "J.R.R Tolkien","295","not read yet");
+
+    myLibrary.forEach(function(item) {
+        let div = document.createElement("div");
+        let title = document.createElement("p");
+        let author = document.createElement("p");
+        let pages = document.createElement("p");
+        let status = document.createElement("p");
+
+        title.textContent = item.title;
+        author.textContent = item.author;
+        pages.textContent = item.pages;
+        status.textContent = item.status;
+
+        div.appendChild(title);
+        div.appendChild(author);
+        div.appendChild(pages);
+        div.appendChild(status);
+
+        document.getElementById("grid").appendChild(div);
+    });
