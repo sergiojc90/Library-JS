@@ -2,7 +2,38 @@
 // The "Book" object is going to have the following attributes:
 // Title, author, number of pages and whether or not you have read the book.
 
-    let myLibrary = [];
+    let myLibrary = [
+        {
+            "title":"The Hobbit",
+            "author":"J.R.R Tolkien",
+            "pages":"295",
+            "status":"Already read"
+        },
+        {
+            "title":"The Hobbit",
+            "author":"J.R.R Tolkien",
+            "pages":"295",
+            "status":"Already read"
+        },
+        {
+            "title":"The Hobbit",
+            "author":"J.R.R Tolkien",
+            "pages":"295",
+            "status":"Already read"
+        },
+        {
+            "title":"The Hobbit",
+            "author":"J.R.R Tolkien",
+            "pages":"295",
+            "status":"Already read"
+        },
+        {
+            "title":"The Hobbit",
+            "author":"J.R.R Tolkien",
+            "pages":"295",
+            "status":"Already read"
+        }
+    ];
 
     function Book(title, author, pages, status){
         this.title = title;
