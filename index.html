@@ -20,6 +20,25 @@
         <button>
             Add new book
         </button>
+
+        <form class="form form--hidden" id="addBook">
+            <h2>Add new book</h2>
+            <label for="title">
+                <input type="text" name="title" id="title" placeholder="Book title">
+            </label>
+            <label for="author">
+                <input type="text" name="author" id="author" placeholder="Author">
+            </label>
+            <label for="pages">
+                <input type="number" name="pages" id="pages" placeholder="Number of pages">
+            </label>
+            <select name="read" id="read">
+                <option value="null" disabled="" selected="">Have you read it yet?</option>
+                <option value="Already read">I have already read it</option>
+                <option value="Not read yet">I have not read it yet</option>
+            </select>
+            <button type="submit" class="form_button">Add book</button>
+        </form>
     </main>
 
     <!-- Start footer -->
