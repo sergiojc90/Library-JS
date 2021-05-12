@@ -77,10 +77,13 @@
     // Event listeners
 
     document.addEventListener("DOMContentLoaded",() => {
-        const addBookForm = document.queryselector("#addBook");
+        const addBookForm = document.querySelector("#addBook");
 
         document.querySelector("#btn-addForm").addEventListener("click", () => {
+            let background = document.querySelector("body").appendChild(document.createElement("div"));
+            background.classList.add("transparent")
             addBookForm.classList.remove("form--hidden");
+
         })
 
         document.querySelector("#btn-addBook").addEventListener("click", () => {
