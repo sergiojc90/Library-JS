@@ -20,12 +20,12 @@
     <main>
         <div id="grid" class="grid"></div>
 
-        <button class="btn btn-add-book">
+        <button class="btn btn-add-book" id="btn-addForm">
             Add new book
         </button>
 
-        <div class="form-container form--hidden">
-            <form class="form" id="addBook">
+        <div class="form-container form--hidden" id="addBook">
+            <form class="form">
                 <h2>Add new book</h2>
                 <label for="title">
                     <input type="text" name="title" id="title" class="form__input" placeholder="Book title" autofocus>
@@ -41,7 +41,7 @@
                     <option value="Already read">I have already read it</option>
                     <option value="Not read yet">I have not read it yet</option>
                 </select>
-                <button type="submit" class="btn form__button">Add</button>
+                <button type="submit" class="btn form__button" id="btn-addBook">Add</button>
             </form>
         </div>
     </main>

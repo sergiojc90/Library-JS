@@ -73,3 +73,17 @@
 
         document.getElementById("grid").appendChild(div);
     });
+
+    // Event listeners
+
+    document.addEventListener("DOMContentLoaded",() => {
+        const addBookForm = document.queryselector("#addBook");
+
+        document.querySelector("#btn-addForm").addEventListener("click", () => {
+            addBookForm.classList.remove("form--hidden");
+        })
+
+        document.querySelector("#btn-addBook").addEventListener("click", () => {
+            addBookForm.classList.add("form--hidden");
+        })
+    });
