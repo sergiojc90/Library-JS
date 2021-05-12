@@ -59,17 +59,22 @@
         let author = document.createElement("h3");
         let pages = document.createElement("p");
         let status = document.createElement("p");
+        let button = document.createElement("button");
 
         div.classList.add("card")
+        button.classList.add("btn","card__btn")
+
         title.textContent = item.title;
         author.textContent = item.author;
         pages.textContent = "Pages: "+item.pages;
         status.textContent = item.status;
+        button.textContent = "Remove";
 
         div.appendChild(title);
         div.appendChild(author);
         div.appendChild(pages);
         div.appendChild(status);
+        div.appendChild(button);
 
         document.getElementById("grid").appendChild(div);
     });
