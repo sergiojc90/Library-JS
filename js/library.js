@@ -28,7 +28,7 @@
             "status":"Not read yet"
         },
         {
-            "title":"The Principles of Object-Oriented JavaScript",
+            "title":"Object-Oriented JavaScript",
             "author":"Nicholas Zakas",
             "pages":"120",
             "status":"Not read yet"
@@ -53,8 +53,8 @@
 
     myLibrary.forEach(function(item) {
         let div = document.createElement("div");
-        let title = document.createElement("p");
-        let author = document.createElement("p");
+        let title = document.createElement("h2");
+        let author = document.createElement("h3");
         let pages = document.createElement("p");
         let status = document.createElement("p");
 
