@@ -78,15 +78,16 @@
 
     document.addEventListener("DOMContentLoaded",() => {
         const addBookForm = document.querySelector("#addBook");
+        const background = document.querySelector("body").appendChild(document.createElement("div"));
 
         document.querySelector("#btn-addForm").addEventListener("click", () => {
-            let background = document.querySelector("body").appendChild(document.createElement("div"));
             background.classList.add("transparent")
             addBookForm.classList.remove("form--hidden");
 
         })
 
         document.querySelector("#btn-addBook").addEventListener("click", () => {
+            background.classList.remove("transparent")
             addBookForm.classList.add("form--hidden");
         })
     });
