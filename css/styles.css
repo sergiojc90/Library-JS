@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+main{
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+#grid{
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+    text-align: center;
+    width: 100%;
+
+}
