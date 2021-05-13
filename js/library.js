@@ -94,7 +94,7 @@
         const books = document.getElementsByClassName("read");
 
         // Event that changes the read status of the book
-        document.querySelectorAll("read").forEach(item =>{
+        document.querySelectorAll(".read").forEach(item =>{
             item.addEventListener("click", () =>{
                 if(item.classList.contains("card__read")){
                     item.classList.add("card__notRead");
