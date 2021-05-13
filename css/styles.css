@@ -2,6 +2,7 @@
     --primary-color:rgb(27, 149, 219);
     --primary-color-dark:rgb(18, 105, 155);
     --primary-color-trasnparent:rgba(18, 105, 155,0.7);
+    --delete-color:rgb(204, 8, 8);
 }
 
 *{
@@ -21,10 +22,16 @@ body{
 }
 
 header{
+    display: flex;
+    flex-direction: row;
     height: 40px;
     padding: 10px;
-    display: flex;
     background-color: cornsilk;
+}
+
+.nav{
+    margin: 0 auto;
+    width: 1080px;
 }
 
 main{
@@ -71,23 +78,26 @@ main{
     font-size: 1.4rem;
 }
 
-.card__btn{
-    width: 100px;
+.btn.card__btn{
     align-self: center;
+    padding: 5px 0;
+    width: 90px;
     font-weight: 400;
-    background: rgb(204, 8, 8);
+    background: #fff;
+    border: 1px solid var(--delete-color);
+    color:var(--delete-color);
 }
 
 .card__btn:hover{
-    background: var(--primary-color-dark);
+    color: #fff;
+    background: var(--delete-color);
 }
 
-.card__button:active{
-    transform: scale(0.98);
+.card__btn:active{
+    transform: scale(0.95);
 }
 
 .btn{
-    padding: 1rem 2rem;
     font-size: 1.6rem;
     color: #fff;
     border: none;
@@ -97,6 +107,7 @@ main{
 }
 
 .btn-add-book{
+    padding: 1rem 2rem;
     width: 200px;
     font-weight: 700;
     background: var(--primary-color);
@@ -146,6 +157,7 @@ main{
 }
 
 .form__button{
+    padding: 1rem 2rem;
     font-weight: 700;
     width: 100%;
     background: var(--primary-color);
