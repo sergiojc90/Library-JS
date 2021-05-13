@@ -10,31 +10,31 @@
             title:"The Hobbit",
             author:"J.R.R Tolkien",
             pages:"295",
-            status:"Already read"
+            status:"true"
         },
         {
             title:"Meditations",
             author:"Marcus Aurelius",
             pages:"172",
-            status:"Already read"
+            status:"true"
         },
         {
             title:"Plato's Dialogs",
             author:"Plato",
             pages:"511",
-            status:"Not read yet"
+            status:"true"
         },
         {
             title:"The Republic",
             author:"Plato",
             pages:"211",
-            status:"Not read yet"
+            status:"false"
         },
         {
             title:"Object-Oriented JavaScript",
             author:"Nicholas Zakas",
             pages:"120",
-            status:"Not read yet"
+            status:"false"
         }
     ];
 
@@ -85,8 +85,9 @@
 
         // Event to disable the form
         document.querySelector("#btn-addBook").addEventListener("onsubmit", () => {
-            background.classList.remove("transparent")
+            background.classList.remove("transparent");
             addBookForm.classList.add("form--hidden");
+            updateGrid();
         })
     });
 
