@@ -61,6 +61,7 @@
         let button = document.createElement("button");
 
         div.classList.add("card")
+        div.dataset.index =
         button.classList.add("btn","card__btn")
 
         if(item.status === "Already read"){
@@ -135,8 +136,7 @@
         return new Book(title,author,pages,status);
     }
 
-    function removeBookFromLibrary(bookTitle){
-        myLibrary = myLibrary.filter((book) => book.title !== bookTitle);
+    function removeBookFromLibrary(){
     }
 
     function addBookToLibrary(){
