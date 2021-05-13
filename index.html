@@ -29,15 +29,15 @@
             <form class="form" action="#">
                 <h2>Add new book</h2>
                 <label for="title">
-                    <input type="text" name="title" id="title" class="form__input" placeholder="Book title" autofocus>
+                    <input type="text" name="title" id="title" class="form__input" placeholder="Book title" autofocus required>
                 </label>
                 <label for="author">
-                    <input type="text" name="author" id="author" class="form__input" placeholder="Author">
+                    <input type="text" name="author" id="author" class="form__input" placeholder="Author" required>
                 </label>
                 <label for="pages">
-                    <input type="number" name="pages" id="pages" class="form__input" placeholder="Number of pages">
+                    <input type="number" name="pages" id="pages" class="form__input" placeholder="Number of pages" required>
                 </label>
-                <select name="read" id="read" class="form__input">
+                <select name="read" id="read" class="form__input" required>
                     <option value="null" disabled="" selected="">Have you read it yet?</option>
                     <option value="Already read">I have already read it</option>
                     <option value="Not read yet">I have not read it yet</option>

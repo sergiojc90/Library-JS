@@ -111,7 +111,7 @@
 
         })
 
-        document.querySelector("#btn-addBook").addEventListener("click", () => {
+        document.querySelector("#btn-addBook").addEventListener("onsubmit", () => {
             background.classList.remove("transparent")
             addBookForm.classList.add("form--hidden");
         })
