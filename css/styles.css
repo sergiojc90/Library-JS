@@ -105,6 +105,7 @@ main{
 
 .btn.card__btn{
     align-self: center;
+    margin: 15px 0;
     padding: 5px 0;
     width: 90px;
     font-weight: 400;

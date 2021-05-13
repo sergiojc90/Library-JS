@@ -50,8 +50,6 @@
     function addBookToLibrary(){
 
     }
-    
-    const theHobbit = new Book("The Hobbit", "J.R.R Tolkien","295","not read yet");
 
     myLibrary.forEach(function(item) {
         let div = document.createElement("div");
@@ -91,6 +89,21 @@
     document.addEventListener("DOMContentLoaded",() => {
         const addBookForm = document.querySelector("#addBook");
         const background = document.querySelector("body").appendChild(document.createElement("div"));
+        const books = document.getElementsByClassName("read");
+
+        document.querySelectorAll(".read").forEach(item =>{
+            item.addEventListener("click", () =>{
+                if(item.classList.contains("card__read")){
+                    item.classList.add("card__notRead");
+                    item.classList.remove("card__read");
+                    item.textContent = "Not read yet";
+                }else{
+                    item.classList.add("card__read");
+                    item.classList.remove("card__notRead");
+                    item.textContent = "Already read";
+                }
+            })
+        })
 
         document.querySelector("#btn-addForm").addEventListener("click", () => {
             background.classList.add("transparent")
@@ -102,5 +115,6 @@
             background.classList.remove("transparent")
             addBookForm.classList.add("form--hidden");
         })
-
     });
+
+
