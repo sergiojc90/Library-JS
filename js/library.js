@@ -2,6 +2,8 @@
 // The "Book" object is going to have the following attributes:
 // Title, author, number of pages and whether or not you have read the book.
 
+
+    // Books Array
     let myLibrary = [
         {
             title:"The Hobbit",
@@ -35,6 +37,7 @@
         }
     ];
 
+    // Book constructor
     class Book {
     constructor(title, author, pages, status) {
         this.title = title;
@@ -47,9 +50,7 @@
     }
 }
 
-    function addBookToLibrary(){
-
-    }
+    //Books Grid
 
     myLibrary.forEach(function(item) {
         let div = document.createElement("div");
@@ -91,30 +92,53 @@
         const background = document.querySelector("body").appendChild(document.createElement("div"));
         const books = document.getElementsByClassName("read");
 
-        document.querySelectorAll(".read").forEach(item =>{
+        // Event that changes the read status of the book
+        document.querySelectorAll("read").forEach(item =>{
             item.addEventListener("click", () =>{
                 if(item.classList.contains("card__read")){
                     item.classList.add("card__notRead");
                     item.classList.remove("card__read");
                     item.textContent = "Not read yet";
+                    item.status = "Not read yet";
                 }else{
                     item.classList.add("card__read");
                     item.classList.remove("card__notRead");
                     item.textContent = "Already read";
+                    item.status = "Already read";
                 }
             })
         })
 
+        // Event listener to bring the form forward
         document.querySelector("#btn-addForm").addEventListener("click", () => {
             background.classList.add("transparent")
             addBookForm.classList.remove("form--hidden");
 
         })
 
+        // Event to disable the form
         document.querySelector("#btn-addBook").addEventListener("onsubmit", () => {
             background.classList.remove("transparent")
             addBookForm.classList.add("form--hidden");
         })
     });
 
+    // Functions
 
+    // Creating new book using form input values
+    function getBookFromInput(){
+        const title = document.querySelector("#title").value;
+        const author = document.querySelector("#author").value;
+        const pages = document.querySelector("#pages").value;
+        const status = document.querySelector("#read").value;
+
+        return new Book(title,author,pages,status);
+    }
+
+    function removeBookFromLibrary(bookTitle){
+        myLibrary = myLibrary.filter((book) => book.title !== bookTitle);
+    }
+
+    function addBookToLibrary(){
+
+    }
