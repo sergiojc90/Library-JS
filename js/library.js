@@ -58,11 +58,18 @@
         let title = document.createElement("h2");
         let author = document.createElement("h3");
         let pages = document.createElement("p");
-        let status = document.createElement("p");
+        let status = document.createElement("button");
         let button = document.createElement("button");
 
         div.classList.add("card")
         button.classList.add("btn","card__btn")
+
+        if(item.status === "Already read"){
+            status.classList.add("card__read","read")
+        }else{
+            status.classList.add("card__notRead","read")
+        }
+
 
         title.textContent = item.title;
         author.textContent = item.author;
@@ -95,4 +102,5 @@
             background.classList.remove("transparent")
             addBookForm.classList.add("form--hidden");
         })
+
     });

@@ -3,6 +3,7 @@
     --primary-color-dark:rgb(18, 105, 155);
     --primary-color-trasnparent:rgba(18, 105, 155,0.7);
     --delete-color:rgb(204, 8, 8);
+    --read-color: rgb(0, 167, 0);
 }
 
 *{
@@ -76,6 +77,30 @@ main{
 
 .card p{
     font-size: 1.4rem;
+}
+
+.read{
+    padding: 5px 0;
+    font-weight: 400;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.read:hover{
+    transform: scale(0.90);
+}
+
+.read:active{
+    color: var(--primary-color-dark);
+}
+
+.card__notRead{
+    color:var(--delete-color);
+}
+
+.card__read{
+    color:var(--read-color);
 }
 
 .btn.card__btn{
