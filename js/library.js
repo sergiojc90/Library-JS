@@ -4,6 +4,8 @@
 
 
     // Books Array
+
+    let index = 0;
     let myLibrary = [
         {
             title:"The Hobbit",
@@ -60,14 +62,15 @@
         let status = document.createElement("button");
         let button = document.createElement("button");
 
-        div.classList.add("card")
-        div.dataset.index =
-        button.classList.add("btn","card__btn")
+        div.classList.add("card");
+        div.dataset.index = `${index}`;
+        index += 1;
+        button.classList.add("btn","card__btn");
 
         if(item.status === "Already read"){
-            status.classList.add("card__read","read")
+            status.classList.add("card__read","read");
         }else{
-            status.classList.add("card__notRead","read")
+            status.classList.add("card__notRead","read");
         }
 
 
