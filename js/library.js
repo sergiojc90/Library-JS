@@ -5,7 +5,6 @@
 
     // Books Array
 
-    let index = 0;
     let myLibrary = [
         {
             title:"The Hobbit",
@@ -51,47 +50,11 @@
         };
     }
 }
-
-    //Books Grid
-
-    myLibrary.forEach(function(item) {
-        let div = document.createElement("div");
-        let title = document.createElement("h2");
-        let author = document.createElement("h3");
-        let pages = document.createElement("p");
-        let status = document.createElement("button");
-        let button = document.createElement("button");
-
-        div.classList.add("card");
-        div.dataset.index = `${index}`;
-        index += 1;
-        button.classList.add("btn","card__btn");
-
-        if(item.status === "Already read"){
-            status.classList.add("card__read","read");
-        }else{
-            status.classList.add("card__notRead","read");
-        }
-
-
-        title.textContent = item.title;
-        author.textContent = item.author;
-        pages.textContent = "Pages: "+item.pages;
-        status.textContent = item.status;
-        button.textContent = "Remove";
-
-        div.appendChild(title);
-        div.appendChild(author);
-        div.appendChild(pages);
-        div.appendChild(status);
-        div.appendChild(button);
-
-        document.getElementById("grid").appendChild(div);
-    });
-
+        
     // Event listeners
 
     document.addEventListener("DOMContentLoaded",() => {
+        updateGrid();
         const addBookForm = document.querySelector("#addBook");
         const background = document.querySelector("body").appendChild(document.createElement("div"));
         const books = document.getElementsByClassName("read");
@@ -143,5 +106,46 @@
     }
 
     function addBookToLibrary(){
+        myLibrary.push(getBookFromInput());
+    }
 
+    //Books Grid
+
+    function updateGrid(){
+
+        let index = 0;
+        myLibrary.forEach(function(item) {
+            let div = document.createElement("div");
+            let title = document.createElement("h2");
+            let author = document.createElement("h3");
+            let pages = document.createElement("p");
+            let status = document.createElement("button");
+            let button = document.createElement("button");
+            
+            div.classList.add("card");
+            div.dataset.index = `${index}`;
+            index += 1;
+            button.classList.add("btn","card__btn");
+            
+            if(item.status === "Already read"){
+                status.classList.add("card__read","read");
+            }else{
+                status.classList.add("card__notRead","read");
+            }
+            
+            
+            title.textContent = item.title;
+            author.textContent = item.author;
+            pages.textContent = "Pages: "+item.pages;
+            status.textContent = item.status;
+            button.textContent = "Remove";
+            
+            div.appendChild(title);
+            div.appendChild(author);
+            div.appendChild(pages);
+            div.appendChild(status);
+            div.appendChild(button);
+            
+            document.getElementById("grid").appendChild(div);
+        });
     }
