@@ -58,6 +58,7 @@
     // Event listeners
 
     document.addEventListener("DOMContentLoaded",() => {
+
         updateGrid();
         
         // Event that changes the read status of the book
@@ -81,27 +82,23 @@
         document.querySelector("#btn-addForm").addEventListener("click", () => {
             background.classList.add("transparent")
             addBookForm.classList.remove("form--hidden");
-
-        })
-    });
-
-    document.addEventListener("click", () =>{
+        });
 
         // Event to disable the form
         document.querySelector("#btn-addBook").addEventListener("onsubmit", () => {
+            console.log(getBookFromInput());
             background.classList.remove("transparent");
             addBookForm.classList.add("form--hidden");
             updateGrid();
-        })
+        });
 
         document.querySelectorAll(".card__btn").forEach(item =>{
             item.addEventListener("click", e =>{
-                console.log("hi")
                 removeBookFromLibrary(e);
                 updateGrid();
-            })
-        })
-    })
+            });
+        });
+    });
 
     // Functions
 
@@ -113,17 +110,18 @@
         const status = document.querySelector("#read").value;
 
         return new Book(title,author,pages,status);
-    }
+    };
 
     function removeBookFromLibrary(e){
         let bookIndex = e.target.parentNode.dataset.index;
         myLibrary.splice(bookIndex,1);
 
-    }
+    };
 
     function addBookToLibrary(){
-        myLibrary.push(getBookFromInput());
-    }
+        getBookFromInput();
+        return false;
+    };
 
     //Books Grid
 
@@ -132,7 +130,7 @@
         let grid = document.getElementById("grid");
         while(grid.hasChildNodes()){
             grid.removeChild(grid.lastChild);
-        }
+        };
 
         let index = 0;
         myLibrary.forEach(function(item) {
@@ -152,7 +150,7 @@
                 status.classList.add("card__read","read");
             }else{
                 status.classList.add("card__notRead","read");
-            }
+            };
             
             
             title.textContent = item.title;
@@ -170,3 +168,17 @@
             document.getElementById("grid").appendChild(div);
         });
     }
+
+    // Local Storage
+
+    function saveLocal(){
+        localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+    }
+
+    function restoreLocal(){
+        myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+        if(myLibrary === null) myLibrary = [];
+        updateGrid();
+    }
+
+    restoreLocal();
