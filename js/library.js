@@ -10,31 +10,31 @@
             title:"The Hobbit",
             author:"J.R.R Tolkien",
             pages:"295",
-            status:"true"
+            status:"Already read"
         },
         {
             title:"Meditations",
             author:"Marcus Aurelius",
             pages:"172",
-            status:"true"
+            status:"Not read yet"
         },
         {
             title:"Plato's Dialogs",
             author:"Plato",
             pages:"511",
-            status:"true"
+            status:"Already read"
         },
         {
             title:"The Republic",
             author:"Plato",
             pages:"211",
-            status:"false"
+            status:"Not read yet"
         },
         {
             title:"Object-Oriented JavaScript",
             author:"Nicholas Zakas",
             pages:"120",
-            status:"false"
+            status:"Already read"
         }
     ];
 
@@ -49,16 +49,17 @@
             return (title + " by " + author + ", " + pages + " pages, " + status);
         };
     }
-}
-        
+    }
+    const addBookForm = document.querySelector("#addBook");
+    const background = document.querySelector("body").appendChild(document.createElement("div"));
+    const books = document.getElementsByClassName("read");
+   
+   
     // Event listeners
 
     document.addEventListener("DOMContentLoaded",() => {
         updateGrid();
-        const addBookForm = document.querySelector("#addBook");
-        const background = document.querySelector("body").appendChild(document.createElement("div"));
-        const books = document.getElementsByClassName("read");
-
+        
         // Event that changes the read status of the book
         document.querySelectorAll(".read").forEach(item =>{
             item.addEventListener("click", () =>{
@@ -72,16 +73,19 @@
                     item.classList.remove("card__notRead");
                     item.textContent = "Already read";
                     item.status = "Already read";
-                }
-            })
-        })
+                };
+            });
+        });
 
-        // Event listener to bring the form forward
+         // Event listener to bring the form forward
         document.querySelector("#btn-addForm").addEventListener("click", () => {
             background.classList.add("transparent")
             addBookForm.classList.remove("form--hidden");
 
         })
+    });
+
+    document.addEventListener("click", () =>{
 
         // Event to disable the form
         document.querySelector("#btn-addBook").addEventListener("onsubmit", () => {
@@ -89,7 +93,15 @@
             addBookForm.classList.add("form--hidden");
             updateGrid();
         })
-    });
+
+        document.querySelectorAll(".card__btn").forEach(item =>{
+            item.addEventListener("click", e =>{
+                console.log("hi")
+                removeBookFromLibrary(e);
+                updateGrid();
+            })
+        })
+    })
 
     // Functions
 
@@ -103,7 +115,10 @@
         return new Book(title,author,pages,status);
     }
 
-    function removeBookFromLibrary(){
+    function removeBookFromLibrary(e){
+        let bookIndex = e.target.parentNode.dataset.index;
+        myLibrary.splice(bookIndex,1);
+
     }
 
     function addBookToLibrary(){
@@ -113,6 +128,11 @@
     //Books Grid
 
     function updateGrid(){
+
+        let grid = document.getElementById("grid");
+        while(grid.hasChildNodes()){
+            grid.removeChild(grid.lastChild);
+        }
 
         let index = 0;
         myLibrary.forEach(function(item) {
