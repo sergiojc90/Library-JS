@@ -88,7 +88,7 @@
 
     // Form
     const bringForm = document.getElementById("btn-addForm");
-    bringForm.addEventListener("click", popForm);
+    bringForm.addEventListener("click", showForm);
 
     const form = document.getElementById("form-addBook");
     form.addEventListener("submit",addBook);
@@ -104,11 +104,18 @@
         };
     };
 
-    function popForm(){
+    function showForm(){
         form.reset();
         background.classList.add("transparent")
         addBookForm.classList.remove("form--hidden");
     };
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape"){
+            background.classList.remove("transparent");
+            addBookForm.classList.add("form--hidden");
+        };
+      });
 
     // Creating new book using form input values
     function getBookFromInput(){
