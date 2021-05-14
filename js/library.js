@@ -78,20 +78,6 @@
             });
         });
 
-         // Event listener to bring the form forward
-        document.querySelector("#btn-addForm").addEventListener("click", () => {
-            background.classList.add("transparent")
-            addBookForm.classList.remove("form--hidden");
-        });
-
-        // Event to disable the form
-        document.querySelector("#btn-addBook").addEventListener("onsubmit", () => {
-            console.log(getBookFromInput());
-            background.classList.remove("transparent");
-            addBookForm.classList.add("form--hidden");
-            updateGrid();
-        });
-
         document.querySelectorAll(".card__btn").forEach(item =>{
             item.addEventListener("click", e =>{
                 removeBookFromLibrary(e);
@@ -100,7 +86,29 @@
         });
     });
 
-    // Functions
+    // Form
+    const bringForm = document.getElementById("btn-addForm");
+    bringForm.addEventListener("click", popForm);
+
+    const form = document.getElementById("form-addBook");
+    form.addEventListener("submit",addBook);
+
+    function addBook(e){
+        e.preventDefault();
+        if(addBookToLibrary(getBookFromInput())){
+            background.classList.remove("transparent");
+            addBookForm.classList.add("form--hidden");
+            updateGrid();
+        }else{
+            alert("Duplicated");
+        };
+    };
+
+    function popForm(){
+        form.reset();
+        background.classList.add("transparent")
+        addBookForm.classList.remove("form--hidden");
+    };
 
     // Creating new book using form input values
     function getBookFromInput(){
@@ -115,12 +123,14 @@
     function removeBookFromLibrary(e){
         let bookIndex = e.target.parentNode.dataset.index;
         myLibrary.splice(bookIndex,1);
-
     };
 
-    function addBookToLibrary(){
-        getBookFromInput();
-        return false;
+    function addBookToLibrary(newBook){
+        if (myLibrary.some((book) => book.title === newBook.title)) return false;
+
+        myLibrary.push(newBook);
+        saveLocal();
+        return true;
     };
 
     //Books Grid
@@ -174,11 +184,3 @@
     function saveLocal(){
         localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
     }
-
-    function restoreLocal(){
-        myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
-        if(myLibrary === null) myLibrary = [];
-        updateGrid();
-    }
-
-    restoreLocal();
