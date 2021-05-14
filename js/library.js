@@ -58,32 +58,7 @@
     // Event listeners
 
     document.addEventListener("DOMContentLoaded",() => {
-
         updateGrid();
-        
-        // Event that changes the read status of the book
-        document.querySelectorAll(".read").forEach(item =>{
-            item.addEventListener("click", () =>{
-                if(item.classList.contains("card__read")){
-                    item.classList.add("card__notRead");
-                    item.classList.remove("card__read");
-                    item.textContent = "Not read yet";
-                    item.status = "Not read yet";
-                }else{
-                    item.classList.add("card__read");
-                    item.classList.remove("card__notRead");
-                    item.textContent = "Already read";
-                    item.status = "Already read";
-                };
-            });
-        });
-
-        document.querySelectorAll(".card__btn").forEach(item =>{
-            item.addEventListener("click", e =>{
-                removeBookFromLibrary(e);
-                updateGrid();
-            });
-        });
     });
 
     // Form
@@ -104,12 +79,14 @@
         };
     };
 
+    // Showing the form by adding two CSS classes
     function showForm(){
         form.reset();
         background.classList.add("transparent")
         addBookForm.classList.remove("form--hidden");
     };
 
+    // Exit form on escape key
     window.addEventListener("keydown", (e) => {
         if (e.key === "Escape"){
             background.classList.remove("transparent");
@@ -127,11 +104,7 @@
         return new Book(title,author,pages,status);
     };
 
-    function removeBookFromLibrary(e){
-        let bookIndex = e.target.parentNode.dataset.index;
-        myLibrary.splice(bookIndex,1);
-    };
-
+    // Adding a book to the Library arry after checking if it is duplicated
     function addBookToLibrary(newBook){
         if (myLibrary.some((book) => book.title === newBook.title)) return false;
 
@@ -141,6 +114,41 @@
     };
 
     //Books Grid
+
+    const gridContainer = document.getElementById("grid"); 
+    gridContainer.addEventListener("click", checkBooks);
+
+    function checkBooks(e){
+        if(e.target.classList.contains("card__btn")){
+            removeBookFromLibrary(e);
+            updateGrid();
+        };
+        
+        if(e.target.classList.contains("read")){
+            if(e.target.classList.contains("card__notRead")){
+                e.target.classList.add("card__read");
+                e.target.classList.remove("card__notRead");
+                e.target.textContent = "Already read";
+
+                const bookIndex = e.target.parentNode.dataset.index;
+                myLibrary[bookIndex].status = "Already read";
+                saveLocal();
+            }else{
+                e.target.classList.add("card__notRead");
+                e.target.classList.remove("card__read");
+                e.target.textContent = "Not read yet";
+
+                const bookIndex = e.target.parentNode.dataset.index;
+                myLibrary[bookIndex].status = "Not read yet";
+                saveLocal();
+            };
+        };
+    };
+
+    function removeBookFromLibrary(e){
+        let bookIndex = e.target.parentNode.dataset.index;
+        myLibrary.splice(bookIndex,1);
+    };
 
     function updateGrid(){
 
