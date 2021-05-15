@@ -1,6 +1,6 @@
 :root{
-    --primary-color:rgb(27, 149, 219);
-    --primary-color-dark:rgb(18, 105, 155);
+    --primary-color:#3282b8;
+    --primary-color-dark:#0f4c75;
     --primary-color-trasnparent:rgba(18, 105, 155,0.7);
     --delete-color:rgb(204, 8, 8);
     --read-color: rgb(0, 167, 0);
@@ -22,19 +22,27 @@ body{
     grid-template-rows: auto 1fr auto;
     height: 100vh;
     font-family: "Roboto",sans-serif;
-    background-color: burlywood;
+    background-color: #1b262c;
 }
 
 header{
-    display: flex;
-    flex-direction: row;
-    height: 40px;
-    padding: 10px;
-    background-color: cornsilk;
+    background-color: #bbe1fa;
 }
 
-.nav{
-    margin: 0 auto;
+.header__flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 20px 30px;
+}
+
+.header__logo{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
 main{
@@ -57,7 +65,6 @@ main{
     flex-direction: column;
     justify-content: space-evenly;
     padding: 1rem;
-    border: 2px solid black;
     border-radius: 16px;
     line-height: 3rem;
     background: #fff;
@@ -211,4 +218,19 @@ footer{
     padding: 20px 0;
     font-size: 1.4rem;
     text-align: center;
+    color: #fff;
+}
+
+.footer__design{
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer__design:visited{
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer__design:hover{
+    color: var(--read-color);
 }

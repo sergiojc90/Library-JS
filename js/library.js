@@ -7,33 +7,9 @@
 
     let myLibrary = [
         {
-            title:"The Hobbit",
-            author:"J.R.R Tolkien",
-            pages:"295",
-            status:"Already read"
-        },
-        {
             title:"Meditations",
             author:"Marcus Aurelius",
             pages:"172",
-            status:"Not read yet"
-        },
-        {
-            title:"Plato's Dialogs",
-            author:"Plato",
-            pages:"511",
-            status:"Already read"
-        },
-        {
-            title:"The Republic",
-            author:"Plato",
-            pages:"211",
-            status:"Not read yet"
-        },
-        {
-            title:"Object-Oriented JavaScript",
-            author:"Nicholas Zakas",
-            pages:"120",
             status:"Already read"
         }
     ];

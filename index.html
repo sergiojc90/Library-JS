@@ -13,9 +13,17 @@
 <body>
     <!-- Start header -->
     <header>
-        <nav class="nav">
-            <h1>My Library</h1>
-        </nav>
+        <div class="header__flex">
+            <div class="header__logo">
+                <img src="./assets/Logo_library.png" alt="Library logo" width="30px">
+                <h1>My Library</h1>
+            </div>
+            <div class="header__github">
+                <a href="https://github.com/sergiojc90/Library-JS" target="_blank">
+                    <img src="./assets/logo_github.png" alt="github logo" width="30px">
+                </a>
+            </div>
+        </div>
     </header>
 
     <!-- Start main section -->
@@ -49,7 +57,9 @@
 
     <!-- Start footer -->
     <footer>
-        <p>Design by Sergio Juárez</p>
+        <p>
+            Design by <a class="footer__design" href="https://github.com/sergiojc90" target="_blank">Sergio Juárez</a>
+        </p>
     </footer>
     <script src="./js/library.js"></script>
 </body>
