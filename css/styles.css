@@ -44,7 +44,6 @@ main{
 }
 
 .grid{
-    margin: 20px 0;
     padding: 0 1rem;
     display: grid;
     grid-template-columns: repeat(auto-fit,200px);
@@ -132,6 +131,7 @@ main{
 }
 
 .btn-add-book{
+    margin: 20px 0;
     padding: 1rem 2rem;
     width: 200px;
     font-weight: 700;
