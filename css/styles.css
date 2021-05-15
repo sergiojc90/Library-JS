@@ -30,6 +30,7 @@ header{
     display: flex;
     justify-content: center;
     background-color: #bbe1fa;
+    border-radius: 0 0 5px 5px;
 }
 
 .header__flex{
@@ -51,6 +52,10 @@ header{
     flex-direction: row;
     align-items: center;
     gap: 20px;
+}
+
+.header__github a img:hover{
+    transform: scale(0.90);
 }
 
 main{
