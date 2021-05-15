@@ -7,7 +7,7 @@
 
     let myLibrary = [
         {
-            title:"Meditations",
+            title:"MEDITATIONS",
             author:"Marcus Aurelius",
             pages:"172",
             status:"Already read"
@@ -84,7 +84,8 @@
 
     // Creating new book using form input values
     function getBookFromInput(){
-        const title = document.querySelector("#title").value;
+        const titleInput = document.querySelector("#title").value;
+        const title = capitalize(titleInput);
         const author = document.querySelector("#author").value;
         const pages = document.querySelector("#pages").value;
         const status = document.querySelector("#read").value;
@@ -92,9 +93,14 @@
         return new Book(title,author,pages,status);
     };
 
+    function capitalize(title){
+        const lower = title.toLowerCase();
+        return title.charAt(0).toUpperCase() + lower.slice(1);
+    }
+
     // Adding a book to the Library arry after checking if it is duplicated
     function addBookToLibrary(newBook){
-        if (myLibrary.some((book) => book.title === newBook.title)) return false;
+        if (myLibrary.some((book) => book.title=== newBook.title)) return false;
 
         myLibrary.push(newBook);
         saveLocal();
