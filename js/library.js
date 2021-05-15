@@ -8,7 +8,7 @@
 
     let myLibrary = [
         {
-            title:"MEDITATIONS",
+            title:"Meditations",
             author:"Marcus Aurelius",
             pages:"172",
             status:"Already read"
