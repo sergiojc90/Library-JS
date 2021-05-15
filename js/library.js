@@ -1,7 +1,8 @@
-// First, we are going to create a constructor for making "Book" objects.
-// The "Book" object is going to have the following attributes:
-// Title, author, number of pages and whether or not you have read the book.
+    // Constants for document elements
 
+    const addBookForm = document.querySelector("#addBook");
+    const background = document.querySelector("body").appendChild(document.createElement("div"));
+    const books = document.getElementsByClassName("read");
 
     // Books Array
 
@@ -15,6 +16,9 @@
     ];
 
     // Book constructor
+    // The "Book" object is going to have the following attributes:
+    // Title, author, number of pages and whether or not you have read the book.
+
     class Book {
     constructor(title, author, pages, status) {
         this.title = title;
@@ -25,16 +29,12 @@
             return (title + " by " + author + ", " + pages + " pages, " + status);
         };
     }
-    }
-    const addBookForm = document.querySelector("#addBook");
-    const background = document.querySelector("body").appendChild(document.createElement("div"));
-    const books = document.getElementsByClassName("read");
-   
-   
-    // Event listeners
+    }  
+    // Loading book in storage
 
     document.addEventListener("DOMContentLoaded",() => {
         updateGrid();
+        getLocal();
     });
 
     // Form
@@ -93,14 +93,15 @@
         return new Book(title,author,pages,status);
     };
 
+    // Function to capitalize book title
     function capitalize(title){
         const lower = title.toLowerCase();
         return title.charAt(0).toUpperCase() + lower.slice(1);
-    }
+    };
 
-    // Adding a book to the Library arry after checking if it is duplicated
+    // Function for adding a book to the Library array after checking if it is duplicated
     function addBookToLibrary(newBook){
-        if (myLibrary.some((book) => book.title=== newBook.title)) return false;
+        if (myLibrary.some((book) => book.title.trim() === newBook.title.trim())) return false;
 
         myLibrary.push(newBook);
         saveLocal();
@@ -114,6 +115,7 @@
 
     // Function to remove books and change the read status
     function checkBooks(e){
+
         if(e.target.classList.contains("card__btn")){
             removeBookFromLibrary(e);
             updateGrid();
@@ -140,19 +142,24 @@
         };
     };
 
+    // To remove the books we use a eventlistener each time the remove button is click, and remover one item from the array using its data-index
     function removeBookFromLibrary(e){
         let bookIndex = e.target.parentNode.dataset.index;
         myLibrary.splice(bookIndex,1);
     };
 
+    // Function to update the grid container
     function updateGrid(){
-
+        
+        // First we remove the all the cards in order to avoid duplicated books
         let grid = document.getElementById("grid");
         while(grid.hasChildNodes()){
             grid.removeChild(grid.lastChild);
         };
 
+        // We initialize a variable that we are going to assing to each card dataset
         let index = 0;
+
         myLibrary.forEach(function(item) {
             let div = document.createElement("div");
             let title = document.createElement("h2");
@@ -201,4 +208,3 @@
         updateGrid();
     };
 
-    getLocal();
