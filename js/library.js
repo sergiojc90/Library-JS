@@ -44,6 +44,11 @@
     const form = document.getElementById("form-addBook");
     form.addEventListener("submit",addBook);
 
+    background.addEventListener("click",() =>{
+        background.classList.remove("transparent");
+        addBookForm.classList.add("form--hidden");
+    });
+
     function addBook(e){
         e.preventDefault();
         if(addBookToLibrary(getBookFromInput())){
@@ -52,7 +57,13 @@
             saveLocal();
             updateGrid();
         }else{
-            alert("Duplicated");
+            if (form.lastChild.lastChild === null){
+                let duplicatedBook = document.createElement("p");
+                duplicatedBook.classList.add("duplicatedBook");
+                duplicatedBook.textContent = "This title is duplicated";
+                document.getElementById("form-addBook").appendChild(duplicatedBook);
+            }
+            return
         };
     };
 
@@ -95,6 +106,7 @@
     const gridContainer = document.getElementById("grid"); 
     gridContainer.addEventListener("click", checkBooks);
 
+    // Function to remove books and change the read status
     function checkBooks(e){
         if(e.target.classList.contains("card__btn")){
             removeBookFromLibrary(e);
@@ -182,3 +194,5 @@
         if (myLibrary === null) myLibrary = [];
         updateGrid();
     };
+
+    getLocal();
