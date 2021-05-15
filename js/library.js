@@ -49,6 +49,7 @@
         if(addBookToLibrary(getBookFromInput())){
             background.classList.remove("transparent");
             addBookForm.classList.add("form--hidden");
+            saveLocal();
             updateGrid();
         }else{
             alert("Duplicated");
@@ -174,4 +175,10 @@
 
     function saveLocal(){
         localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
-    }
+    };
+
+    function getLocal(){
+        myLibrary = JSON.parse(localStorage.getItem("myLibrary"));
+        if (myLibrary === null) myLibrary = [];
+        updateGrid();
+    };
