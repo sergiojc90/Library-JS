@@ -118,6 +118,7 @@
 
         if(e.target.classList.contains("card__btn")){
             removeBookFromLibrary(e);
+            saveLocal();
             updateGrid();
         };
         
